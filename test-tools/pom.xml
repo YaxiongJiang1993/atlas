@@ -56,7 +56,25 @@
                     <groupId>org.apache.logging.log4j</groupId>
                     <artifactId>log4j-slf4j-impl</artifactId>
                 </exclusion>
+                <exclusion>
+                    <artifactId>org.restlet</artifactId>
+                    <groupId>org.restlet.jee</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>org.restlet.ext.servlet</artifactId>
+                    <groupId>org.restlet.jee</groupId>
+                </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <artifactId>org.restlet</artifactId>
+            <groupId>org.restlet.jee</groupId>
+            <version>2.3.12</version>
+        </dependency>
+        <dependency>
+            <artifactId>org.restlet.ext.servlet</artifactId>
+            <groupId>org.restlet.jee</groupId>
+            <version>2.3.12</version>
         </dependency>
 
         <dependency>
