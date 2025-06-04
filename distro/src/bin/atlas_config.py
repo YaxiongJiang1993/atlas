@@ -66,11 +66,11 @@ IS_WINDOWS = platform.system() == "Windows"
 ON_POSIX = 'posix' in sys.builtin_module_names
 CONF_FILE="atlas-application.properties"
 STORAGE_BACKEND_CONF="atlas.graph.storage.backend"
-HBASE_STORAGE_LOCAL_CONF_ENTRY="atlas.graph.storage.hostname\s*=\s*localhost"
-SOLR_INDEX_CONF_ENTRY="atlas.graph.index.search.backend\s*=\s*solr"
+HBASE_STORAGE_LOCAL_CONF_ENTRY=r"atlas.graph.storage.hostname\s*=\s*localhost"
+SOLR_INDEX_CONF_ENTRY=r"atlas.graph.index.search.backend\s*=\s*solr"
 SOLR_INDEX_MODE_CONF_ENTRY="atlas.graph.index.search.solr.mode"
-SOLR_INDEX_LOCAL_STANDALONE_CONF_ENTRY="atlas.graph.index.search.solr.http-urls\s*=(http|https)://localhost"
-SOLR_INDEX_LOCAL_CLOUD_CONF_ENTRY="atlas.graph.index.search.solr.zookeeper-url\s*=\s*localhost"
+SOLR_INDEX_LOCAL_STANDALONE_CONF_ENTRY=r"atlas.graph.index.search.solr.http-urls\s*=(http|https)://localhost"
+SOLR_INDEX_LOCAL_CLOUD_CONF_ENTRY=r"atlas.graph.index.search.solr.zookeeper-url\s*=\s*localhost"
 SOLR_INDEX_ZK_URL="atlas.graph.index.search.solr.zookeeper-url"
 TOPICS_TO_CREATE="atlas.notification.topics"
 ATLAS_HTTP_PORT="atlas.server.http.port"
@@ -706,7 +706,7 @@ def grep(file, value):
     return None
 
 def getConfig(file, key):
-    key = key + "\s*="
+    key = key + r"\s*="
     for line in open(file).readlines():
         if re.match(key, line):
             return line.split('=')[1].strip()
